@@ -111,6 +111,7 @@ public class UserController {
     // 实现登录
     @PostMapping("/account_login")
     public Result login(@RequestBody LoginParam loginParam, HttpServletRequest request) {
+
         String userAgent = request.getHeader("User-Agent");
         // 获取验证码
         String captcha = loginParam.getCaptcha();
@@ -235,6 +236,14 @@ public class UserController {
         return Result.ok(200, data);
     }
 
+    @GetMapping("/logout")
+    public Result logout(@RequestHeader("ejyy-pc-token") String token){
+        String account = TokenManager.getNameFromToken(token);
+        LoginInfo loginInfo = propertyCompanyUserService.login(account);
+        System.out.println(token);
+        propertyCompanyAuthService.logout(loginInfo);
+        return Result.ok(200,"账号已退出");
+    }
     // 验证码
     @GetMapping("/captcha")
     public Result captcha(HttpServletResponse response) {
