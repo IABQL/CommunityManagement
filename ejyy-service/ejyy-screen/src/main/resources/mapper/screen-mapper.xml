@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.openlab.statistic.mapper.ScreenMapper">
+    <select id="selectWarningCurrent" resultType="com.openlab.statistic.entity.WarningCurrent">
+        select
+           eiwl.created_at,
+           eiwl.category,
+           eiwl.building_id,
+           ebi.type,
+           ebi.area,
+           ebi.building,
+           ebi.unit,
+           ebi.number
+           from
+            ejyy_iot_warning_log as eiwl
+            left join ejyy_iot_warning as eiw on eiw.id = eiwl.warning_id
+            left join ejyy_building_info as ebi on ebi.id = eiwl.building_id
+            where eiw.community_id = #{arg0}
+                and eiwl.created_at between #{arg1} and #{arg2}
+            order by eiwl.id desc
+            limit 0,10
+    </select>
+
+    <!--<select id="selectComplainCurrentDay" resultType="">
+        select (step, merge_id, rate)
+            from ejyy_complain
+            where community_id = #{communityId}
+                and created_at between #{dayStart} and #{dayEnd};
+    </select>-->
+
+    <select id="selectParkCurrentDayLog" resultType="com.openlab.statistic.entity.ParkCurrentDayLog">
+        select
+           eipl.created_at,
+           eipl.car_number,
+           eipl.gate,
+           eip.name
+           from
+           ejyy_iot_park_log as eipl
+        left join ejyy_iot_park as eip
+                on eip.id = eipl.park_id
+            where eip.community_id = #{arg0} and eipl.created_at between #{arg1} and #{arg2}
+            order by eipl.id desc
+            limit 0,15
+    </select>
+
+    <select id="selectElevatorCurrentDayLog" resultType="com.openlab.statistic.entity.ElevatorCurrentDayLog">
+        select
+           eiel.created_at,
+           eie.name,
+           ewmu.real_name,
+           ev.vistor_name
+           from
+           ejyy_iot_elevator_log as eiel
+            left join ejyy_iot_elevator as eie
+                    on eie.id = eiel.elevator_id
+            left join ejyy_wechat_mp_user as ewmu
+                    on ewmu.id = eiel.wechat_mp_user_id
+            left join ejyy_vistor as ev
+                    on ev.id = eiel.vistor_id
+            where eie.community_id = #{arg0} and eiel.created_at between #{arg1} and #{arg2}
+            order by eiel.id desc
+            limit 0,15
+    </select>
+
+    <select id="selectEntranceCurrentDayLog" resultType="com.openlab.statistic.entity.EntranceCurrentDayLog">
+        select
+            eiel.created_at,
+            eie.name,
+            ewmu.real_name,
+            ev.vistor_name
+            from ejyy_iot_entrance_log as eiel
+            left join ejyy_iot_entrance as eie
+                on eie.id = eiel.entrance_id
+            left join ejyy_wechat_mp_user as ewmu
+                on ewmu.id = eiel.wechat_mp_user_id
+            left join ejyy_vistor as ev
+                on ev.id = eiel.vistor_id
+            where eie.community_id = #{arg0} and eiel.created_at between #{arg1} and #{arg2}
+            order by eiel.id desc
+                limit 0,15
+    </select>
+
+    <select id="selectOwerTotal" resultType="Integer">
+        select count(*) from ejyy_wechat_mp_user
+            where id in (
+                select ejyy_user_building.wechat_mp_user_id
+                    from ejyy_user_building
+                    left join ejyy_building_info
+                        on ejyy_building_info.id = ejyy_user_building.building_id
+                    where ejyy_building_info.community_id = #{communityId}
+                        and ejyy_user_building.status = 1
+                )
+    </select>
+</mapper>

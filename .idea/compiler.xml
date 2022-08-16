@@ -10,7 +10,9 @@
         <module name="ejyy-utils" />
         <module name="ejyy-user" />
         <module name="ejyy-gateway" />
+        <module name="ejyy-notice" />
         <module name="ejyy-init" />
+        <module name="ejyy-screen" />
         <module name=" ejyy-service" />
       </profile>
     </annotationProcessing>

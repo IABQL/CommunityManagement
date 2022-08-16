@@ -18,15 +18,15 @@ public class TokenManager {
     public static final String SECRET = "openlab123";  // 密钥
 
     // 生成 token 字符串
-    public static String createToken(String name) {
+    public static String createToken(Long id,String name) {
         String token = Jwts.builder()
                 .setHeaderParam("typ", "JWT")
                 .setHeaderParam("alg", "HS256")
                 .setSubject(name)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
-                //.claim("id", id)
-                //.claim("name", name)
+                .claim("id", id)
+                .claim("name", name)
                 .signWith(SignatureAlgorithm.HS256, SECRET)
                 .compact();
         return token;
@@ -69,14 +69,14 @@ public class TokenManager {
     }
 
     // 根据 token 字符串获取对象属性
-    public UserTokenDto getNameByJwtToken(HttpServletRequest request) {
+    public static UserTokenDto getNameByJwtToken(HttpServletRequest request) {
         UserTokenDto userTokenDto = new UserTokenDto();
 
         String jwtToken = request.getHeader("ejyy-pc-token");
         if (StringUtils.hasLength(jwtToken)) {
             Jws<Claims> claimsJws = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(jwtToken);
             Claims claims = claimsJws.getBody();
-            userTokenDto.setId(claims.get("id", String.class));
+            userTokenDto.setId(claims.get("id", Long.class));
             userTokenDto.setName(claims.get("name", String.class));
         }
         return userTokenDto;

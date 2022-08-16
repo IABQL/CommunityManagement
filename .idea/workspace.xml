@@ -4,21 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="" />
+    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/dto/UserTokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/dto/UserTokenDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/ResultCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/ResultCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/TokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/TokenManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
-  <component name="CompilerWorkspaceConfiguration">
-    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -27,177 +33,179 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/ejyy-openlab" value="master" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ejyy-openlab" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JsBowerSettings">
-    <bower-package value="" />
-    <bower.json value="" />
-  </component>
-  <component name="KotlinCodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\Programming\repository" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../apache-maven-3.8.4" />
-        <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="D:\Programming\apache-maven-3.8.4\conf\settings.xml" />
+        <option name="localRepository" value="D:\software\Maven\repository" />
+        <option name="mavenHome" value="D:\software\apache-maven-3.8.4" />
+        <option name="userSettingsFile" value="D:\software\apache-maven-3.8.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="2" />
-  </component>
-  <component name="ProjectId" id="2DBkeVVM91NzE05h6F9evbZ5Uyq" />
+  <component name="ProjectId" id="2DNW6racRddzbdVtFKbCBg42dmj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "D:/Programming/Project/ejyy-openlab/ejyy-common",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "D:\\Software\\Develop\\nodejs\\npm.cmd",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "scala_project_settings_configurable.last_selected_tab_index": "0",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "spring.configuration.checksum": "819341ec59761457f63812631cd9a8da"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="D:/分布式项目/flying-pigeon-IM" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Workspace\Idea\ejyy-openlab\ejyy-service\ejyy-user\src\main\resources" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.openlab.service.init" />
+      <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-screen\src\main\java\com\openlab\statistic" />
+      <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-screen\src\main\resources\mapper" />
+      <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-statistic\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.openlab.service.user.dto" />
-      <recent name="com.openlab.service.user.entity" />
+      <recent name="com.openlab.statistic" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-  </component>
-  <component name="RunManager" selected="Spring Boot.GatewayApplication">
-    <configuration name="MD5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.openlab.common.utils.MD5" />
-      <module name="ejyy-utils" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.openlab.common.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="Spring Boot.NoticeApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ejyy-gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.gateway.GatewayApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.openlab.gateway.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.gateway.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InitApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ejyy-init" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.service.init.InitApplication" />
+    <configuration name="NoticeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-notice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.openlab.service.init.*" />
+          <option name="PATTERN" value="com.openlab.notice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.notice.NoticeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScreenApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-screen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.openlab.statistic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.statistic.ScreenApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ejyy-user" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.service.user.UserApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.openlab.service.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.service.user.UserApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.MD5" />
-      <item itemvalue="Spring Boot.GatewayApplication" />
-      <item itemvalue="Spring Boot.InitApplication" />
-      <item itemvalue="Spring Boot.UserApplication" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.GatewayApplication" />
+        <item itemvalue="Spring Boot.NoticeApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
-        <item itemvalue="Spring Boot.InitApplication" />
-        <item itemvalue="Application.MD5" />
+        <item itemvalue="Spring Boot.ScreenApplication" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="" />
-      <created>1660179963390</created>
+      <created>1660539849240</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1660179963390</updated>
-      <workItem from="1660179966372" duration="20212000" />
-      <workItem from="1660264187562" duration="27341000" />
-      <workItem from="1660303337239" duration="5601000" />
-      <workItem from="1660436380265" duration="25744000" />
-      <workItem from="1660470215823" duration="1095000" />
-      <workItem from="1660471339876" duration="454000" />
-      <workItem from="1660471809565" duration="941000" />
-      <workItem from="1660472898067" duration="2300000" />
+      <updated>1660539849240</updated>
+      <workItem from="1660539852113" duration="1014000" />
+      <workItem from="1660541009802" duration="18839000" />
+      <workItem from="1660566294421" duration="6739000" />
+      <workItem from="1660580347583" duration="1263000" />
+      <workItem from="1660582602131" duration="154000" />
+      <workItem from="1660615113709" duration="26875000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
