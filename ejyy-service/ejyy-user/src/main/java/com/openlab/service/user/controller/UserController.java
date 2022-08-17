@@ -162,7 +162,7 @@ public class UserController {
                 .build();
 
         // 2. 生成 token
-        String token = TokenManager.createToken(loginInfo.getId(),loginInfo.getAccount());
+        String token = TokenManager.createToken(loginInfo.getId().longValue(),loginInfo.getAccount());
 
         // 3. 更新 token，这一步的操作可以放到消息队列中
         UpdateWrapper<PropertyCompanyAuth> updateWrapper = new UpdateWrapper<>();

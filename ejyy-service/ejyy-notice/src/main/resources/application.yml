@@ -24,6 +24,12 @@ spring:
     nacos:
       discovery:
         server-addr: 1.14.75.238:8848
+  rabbitmq:
+    password: guest
+    username: guest
+    host: 1.14.75.238
+    port: 5672
+    virtual-host: /
 
 mybatis-plus:
   type-aliases-package: com.openlab.notice.mapper

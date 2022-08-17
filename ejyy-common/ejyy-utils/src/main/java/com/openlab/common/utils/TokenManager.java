@@ -42,7 +42,7 @@ public class TokenManager {
     }
 
     // 判断 token 是否存在，或者是否有效
-    public boolean checkToken(String jwtToken) {
+    public static boolean checkToken(String jwtToken) {
         if (StringUtils.hasLength(jwtToken)) {
             try {
                 Jwts.parser().setSigningKey(SECRET).parseClaimsJws(jwtToken);
@@ -55,7 +55,7 @@ public class TokenManager {
     }
 
     // 判断 token 是否存在或有效
-    public boolean checkToken(HttpServletRequest request) {
+    public static boolean checkToken(HttpServletRequest request) {
         try {
             String jwtToken = request.getHeader("ejyy-pc-token");
             if (StringUtils.hasLength(jwtToken)) {

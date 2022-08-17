@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）&#10;4.添加小区通知发布">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/dto/UserTokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/dto/UserTokenDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/ResultCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/ResultCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/Result.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/TokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/TokenManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/Entity/NoticeToUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/Entity/NoticeToUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/rabbit/RabbitProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/rabbit/RabbitProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +69,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/分布式项目/flying-pigeon-IM" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ejyy-web" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -85,21 +83,12 @@
       <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-statistic\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.openlab.notice.utils" />
+      <recent name="com.openlab.notice.interceptor" />
       <recent name="com.openlab.statistic" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.NoticeApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ejyy-gateway" />
       <extension name="coverage">
@@ -173,8 +162,18 @@
       <workItem from="1660566294421" duration="6739000" />
       <workItem from="1660580347583" duration="1263000" />
       <workItem from="1660582602131" duration="154000" />
-      <workItem from="1660615113709" duration="26875000" />
+      <workItem from="1660615113709" duration="38572000" />
+      <workItem from="1660700228276" duration="12526000" />
+      <workItem from="1660718813756" duration="3985000" />
     </task>
+    <task id="LOCAL-00001" summary="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）">
+      <created>1660647248938</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660647248938</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +202,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

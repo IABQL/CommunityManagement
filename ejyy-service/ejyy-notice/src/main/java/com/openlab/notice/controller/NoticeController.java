@@ -1,13 +1,19 @@
 package com.openlab.notice.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.openlab.common.utils.Result;
 import com.openlab.common.utils.ResultCodeEnum;
-import com.openlab.common.utils.TokenManager;
 import com.openlab.notice.Entity.NoticeToUser;
 import com.openlab.notice.Entity.NoticeTpl;
+import com.openlab.notice.dto.NoticeListDto;
+import com.openlab.notice.rabbit.RabbitProvider;
+import com.openlab.notice.service.NoticeListService;
 import com.openlab.notice.service.NoticeToUserService;
 import com.openlab.notice.service.NoticeTplService;
+import com.openlab.notice.utils.HostHolder;
+import com.openlab.notice.vo.NoticeListVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +32,15 @@ public class NoticeController {
 
     @Autowired
     private NoticeTplService noticeTplService;
+
+    @Autowired
+    private RabbitProvider rabbitProvider;
+
+    @Autowired
+    private NoticeListService noticeListService;
+
+    @Autowired
+    private HostHolder hostHolder;
 
     @GetMapping("/tpl")
     public Result getTpl(){
@@ -48,7 +63,7 @@ public class NoticeController {
     @PostMapping("/create")
     public Result create(@RequestBody Map<String,Object> noticeContent, HttpServletRequest httpServletRequest){
 
-        Long userId = TokenManager.getNameByJwtToken(httpServletRequest).getId();
+        Long userId = hostHolder.getUserId();
 
         NoticeTpl noticeTpl = NoticeTpl.builder()
                 .tpl((String) noticeContent.get("tpl"))
@@ -74,6 +89,74 @@ public class NoticeController {
                 .created_at(created_at)
                 .build();
         noticeToUserService.save(noticeToUser);
-        return Result.ok();
+
+        Map<String,Object> res = new HashMap<>();
+        res.put("id",noticeToUser.getId());
+        // TODO................................
+        //rabbitProvider.sendMessage();// 消息队列
+        return Result.ok(ResultCodeEnum.SUCCESS.code, res);
+    }
+
+    @PostMapping("/list")
+    public Result getNoticeList(@RequestBody NoticeListDto noticeListDto){
+        int offset = (noticeListDto.getPage_num()-1) * noticeListDto.getPage_size();
+        noticeListDto.setOffset(offset);
+        List<NoticeListVo> noticeList = noticeListService.getNoticeList(noticeListDto);
+        int noticeTotal = noticeListService.getNoticeTotal(noticeListDto);
+
+        Map<String,Object> res = new HashMap<>();
+        res.put("list",noticeList);
+        res.put("page_amount",Math.ceil(noticeTotal / noticeListDto.getPage_size()));
+        res.put("total",noticeTotal);
+        res.put("page_num",noticeListDto.getPage_num());
+        res.put("page_size",noticeListDto.getPage_size());
+
+        return Result.ok(ResultCodeEnum.SUCCESS.code, res);
+    }
+
+    @PostMapping("/detail")
+    public Result getNoticeDetail(@RequestBody Map<String,Long> map) {
+        Map<String, Object> noticeDetail = noticeListService.getNoticeDetail(map.get("id"),map.get("community_id"));
+        String tpl_title = "非法模板";
+        if (noticeDetail.get("tpl") != null){
+
+        }
+        noticeDetail.put("tpl_title",tpl_title);
+        noticeDetail.put("published_real_name",noticeDetail.get("real_name"));
+        return Result.ok(ResultCodeEnum.SUCCESS.code, noticeDetail);
+    }
+
+    @PostMapping("/published")
+    public Result published(@RequestBody Map<String,Long> map){
+        Long id = map.get("id");
+        Long community_id = map.get("community_id");
+
+        Long published_at = System.currentTimeMillis();
+
+        QueryWrapper<NoticeToUser> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", id);
+        queryWrapper.eq("community_id", community_id);
+        NoticeToUser notice = noticeToUserService.getOne(queryWrapper);
+        if (notice == null){
+            return Result.error(ResultCodeEnum.QUERY_ILLEFAL.code, "非法小区通知");
+        }
+        if (notice.getPublished() == 1){
+            return Result.error(ResultCodeEnum.STATUS_ERROR.code, "通知已发布");
+        }
+
+        UpdateWrapper updateWrapper = new UpdateWrapper();
+        updateWrapper.set("published",true);
+        updateWrapper.set("published_by",hostHolder.getUserId());
+        updateWrapper.set("published_at",published_at);
+        updateWrapper.eq("id",id);
+        updateWrapper.eq("community_id",community_id);
+        boolean update = noticeToUserService.update(updateWrapper);
+        if (!update){
+            return Result.error(ResultCodeEnum.DATA_MODEL_UPDATE_FAIL.code,"发布通知失败");
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("published_at", published_at);
+        return Result.ok(ResultCodeEnum.SUCCESS.code, "修改小区通知成功",data);
     }
 }

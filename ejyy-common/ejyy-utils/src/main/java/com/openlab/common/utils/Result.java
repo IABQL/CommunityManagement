@@ -75,6 +75,13 @@ public final class Result {
         return result;
     }
 
+    public static Result error(int code, String msg) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setMessage(msg);
+        return result;
+    }
+
     public Result success(Boolean success) {
         this.setSuccess(success);
         return this;
