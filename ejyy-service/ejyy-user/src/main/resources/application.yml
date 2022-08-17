@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: user-server
+    name: userDev-server
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://1.14.75.238:3306/ejyy?useSSL=false&characterEncoding=UTF8

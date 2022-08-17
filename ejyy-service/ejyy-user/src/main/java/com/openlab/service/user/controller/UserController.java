@@ -2,6 +2,8 @@ package com.openlab.service.user.controller;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
+import com.openlab.common.dto.CompanyUserInformation;
+import com.openlab.common.dto.CompanyUserPart;
 import com.openlab.common.utils.*;
 import com.openlab.service.user.dto.*;
 import com.openlab.service.user.entity.PropertyCompanyAuth;
@@ -47,6 +49,14 @@ public class UserController {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    PropertyCompanyUserService companyUserService;
+
+    @GetMapping("/companyUser")
+    CompanyUserPart getCompanyUserInformation(@RequestBody CompanyUserInformation companyUserInformation){
+        return companyUserService.getCompanyUser(companyUserInformation);
+    }
+
     @GetMapping("/info")
     public Result info(HttpServletRequest request) {
         String token = request.getHeader("ejyy-pc-token");
@@ -69,13 +79,14 @@ public class UserController {
                 .access(StringUtils.hasLength(loginInfo.getContent()) ? loginInfo.getContent() : "[]")
                 .build();
 
-        // 5. 返回 postInfo 信息
+        // 5. 通过用户ID查询默认的用户部门、职位
         DepartJob departJob = propertyCompanyUserService.info(loginInfo.getId());
         PostInfo postInfo = new PostInfo();
         if (ObjectUtils.isEmpty(departJob)) {
+            //5.1 没查到，则添加null
             postInfo.setDepartment(null);
             postInfo.setJob(null);
-            // 5.1 查询小区信息
+            // 5.2 通过用户ID查询小区临时表
             CommunityDto communityDto = communityInfoService.getInfoByUserId(loginInfo.getId().longValue());
             if (ObjectUtils.isEmpty(communityDto)) {
                 CommunityList communityList = CommunityList.builder().build();
@@ -91,6 +102,8 @@ public class UserController {
                         .build();
                 postInfo.getCommunity_list().add(communityList);
             }
+
+            // 5.3 查到了直接添加
         } else {
             postInfo.setJob(departJob.getJob());
             postInfo.setDepartment(departJob.getDepartment());
@@ -115,9 +128,7 @@ public class UserController {
         String userAgent = request.getHeader("User-Agent");
         // 获取验证码
         String captcha = loginParam.getCaptcha();
-        if (!StringUtils.hasLength(captcha)) {
-            return Result.ok(ResultCodeEnum.CAPTCHA_ERROR.getCode(), "验证码不能为空");
-        }
+
         // 从 Redis 中获取验证码值
         String redisCaptcha = (String) redisTemplate.opsForValue().get(captcha);
         if (!StringUtils.hasLength(redisCaptcha)) {

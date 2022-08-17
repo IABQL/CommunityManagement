@@ -13,7 +13,7 @@ public final class IPUtils {
     private static final String IP_UTILS_FLAG = ",";
     private static final String UNKNOWN = "unknown";
     private static final String LOCALHOST_IP = "0:0:0:0:0:0:0:1";
-    private static final String LOCALHOST_IP1 = "127.0.0.1";
+    private static final String LOCALHOST_IP1 = "1.14.75.238";
 
     /**
      * 获取IP地址

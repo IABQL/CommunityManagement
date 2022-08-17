@@ -12,6 +12,7 @@
         <module>ejyy-common</module>
         <module>ejyy-gateway</module>
         <module>ejyy-service</module>
+        <module>ejyy-develop</module>
     </modules>
 
     <properties>
