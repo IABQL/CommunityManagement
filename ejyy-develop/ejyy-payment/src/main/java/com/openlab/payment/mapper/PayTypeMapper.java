@@ -1,0 +1,90 @@
+package com.openlab.payment.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.openlab.payment.dto.PayTypeDto;
+import com.openlab.payment.entity.PayType;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PayTypeMapper extends BaseMapper<PayType> {
+    @Select("select * from ejyy_payment_electric where user_id=#{userId}")
+    PayType getElectric(@Param("userId") int userId);
+
+    @Select("select * from ejyy_payment_gas where user_id=#{userId}")
+    PayType getGas(@Param("userId") int userId);
+
+    @Select("select * from ejyy_payment_water where user_id=#{userId}")
+    PayType getWater(@Param("userId") int userId);
+
+    @Update("<script> " +
+            "UPDATE ejyy_payment_electric SET " +
+            "<if test='used_quantity!=null '>" +
+            " used_quantity = #{used_quantity}," +
+            "</if>" +
+            "<if test='payment_remain_price!=null '>" +
+            "payment_remain_price = #{payment_remain_price}" +
+            "</if>" +
+            "<where>" +
+            "<if test='user_id!=null '>" +
+            "AND user_id = #{user_id} " +
+            "</if>" +
+            "<if test='community_id!=null '>" +
+            "AND community_id = #{community_id} " +
+            "</if>" +
+            "</where> " +
+            "</script>")
+    void updateElectric(PayTypeDto payType);
+
+    @Update("<script> " +
+            "UPDATE ejyy_payment_gas SET " +
+            "<if test='used_quantity!=null '>" +
+            " used_quantity = #{used_quantity}," +
+            "</if>" +
+            "<if test='payment_remain_price!=null '>" +
+            "payment_remain_price = #{payment_remain_price}" +
+            "</if>" +
+            "<where>" +
+            "<if test='user_id!=null '>" +
+            "AND user_id = #{user_id} " +
+            "</if>" +
+            "<if test='community_id!=null '>" +
+            "AND community_id = #{community_id} " +
+            "</if>" +
+            "</where> " +
+            "</script>")
+    void updateGas(PayTypeDto payType);
+
+    @Update("<script> " +
+            "UPDATE ejyy_payment_water SET " +
+            "<if test='used_quantity!=null '>" +
+            " used_quantity = #{used_quantity}," +
+            "</if>" +
+            "<if test='payment_remain_price!=null '>" +
+            "payment_remain_price = #{payment_remain_price}" +
+            "</if>" +
+            "<where>" +
+            "<if test='user_id!=null '>" +
+            "AND user_id = #{user_id} " +
+            "</if>" +
+            "<if test='community_id!=null '>" +
+            "AND community_id = #{community_id} " +
+            "</if>" +
+            "</where> " +
+            "</script>")
+    void updateWater(PayTypeDto payType);
+
+
+    @Insert("insert into ejyy_payment_electric (id,user_id,community_id,used_quantity,payment_remain_price) values " +
+            "(null,#{userId},#{communityId},#{usedQuantity},#{paymentRemainPrice})")
+    void insertElectric(PayType payType);
+    @Insert("insert into ejyy_payment_gas (id,user_id,community_id,used_quantity,payment_remain_price) values " +
+            "(null,#{userId},#{communityId},#{usedQuantity},#{paymentRemainPrice})")
+    void insertGas(PayType payType);
+    @Insert("insert into ejyy_payment_water (id,user_id,community_id,used_quantity,payment_remain_price) values " +
+            "(null,#{userId},#{communityId},#{usedQuantity},#{paymentRemainPrice})")
+    void insertWater(PayType payType);
+}

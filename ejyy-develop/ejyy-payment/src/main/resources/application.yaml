@@ -1,9 +1,10 @@
 server:
-  port: 8200
+  port: 8500
 
 spring:
   application:
-    name: userDev-server
+    name: payment-server
+
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://1.14.75.238:3306/ejyy?useSSL=false&characterEncoding=UTF8
@@ -12,7 +13,7 @@ spring:
     password: cyq0902
 #    password: 123456
   redis:
-    host: 1.14.64.16
+    host: 1.14.75.238
     port: 6379
     database: 0
     timeout: 18000000
@@ -27,10 +28,13 @@ spring:
       discovery:
         server-addr: 1.14.75.238:8848
 mybatis-plus:
-  type-aliases-package: com.openlab.service.user.mapper
+  type-aliases-package: com.openlab.service.init.mapper
   global-config:
     db-config:
       id-type: auto
-      table-prefix: ejyy_
+#      table-prefix: ejyy_
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+feign:
+  httpclient:
+    enabled: true
