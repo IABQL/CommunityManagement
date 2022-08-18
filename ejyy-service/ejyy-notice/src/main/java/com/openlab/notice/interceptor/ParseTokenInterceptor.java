@@ -17,15 +17,13 @@ public class ParseTokenInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String jwtToken = request.getHeader("ejyy-pc-token");
-        System.out.println(jwtToken);
 
         if (TokenManager.checkToken(request)){
             Long userId = TokenManager.getNameByJwtToken(request).getId();
             hostHolder.setUserId(userId);
             return true;
         }else {
-            return false;
+            return true;
         }
     }
 

@@ -228,6 +228,7 @@ public class UserController {
         postInfo.setDefault_community_id(defaultInfo == null ? postInfo.getCommunity_list().get(0).getCommunity_id() : defaultInfo);
         postInfo.setWechat_payment(0);
 
+
         // 返回结果的信息
         Map<String, Object> data = new HashMap<>();
         data.put("token", token);
@@ -294,4 +295,5 @@ public class UserController {
         data.put("expire", 1800000);
         return Result.ok(200, data);
     }
+
 }

@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）&#10;4.添加小区通知发布">
+    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="notice模块添加拦截器">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6d8d286-e558-425f-994e-8933284e15e5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6d8d286-e558-425f-994e-8933284e15e5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/TokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-common/ejyy-utils/src/main/java/com/openlab/common/utils/TokenManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/Entity/NoticeToUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/Entity/NoticeToUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-init/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-init/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-init/src/main/java/com/openlab/service/init/controller/InitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-init/src/main/java/com/openlab/service/init/controller/InitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/rabbit/RabbitProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/rabbit/RabbitProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/interceptor/ParseTokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/interceptor/ParseTokenInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ejyy-web" />
+    <property name="last_opened_file_path" value="D:/分布式项目/flying-pigeon-IM" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -83,12 +84,26 @@
       <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-statistic\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.openlab.service.init.controller" />
       <recent name="com.openlab.notice.utils" />
       <recent name="com.openlab.notice.interceptor" />
       <recent name="com.openlab.statistic" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.NoticeApplication">
+  <component name="RunManager" selected="Spring Boot.InitApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ejyy-gateway" />
       <extension name="coverage">
@@ -98,6 +113,19 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InitApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-init" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.openlab.service.init.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.service.init.InitApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,8 +171,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.NoticeApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
+        <item itemvalue="Spring Boot.InitApplication" />
+        <item itemvalue="Spring Boot.NoticeApplication" />
         <item itemvalue="Spring Boot.ScreenApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
       </list>
@@ -164,7 +193,8 @@
       <workItem from="1660582602131" duration="154000" />
       <workItem from="1660615113709" duration="38572000" />
       <workItem from="1660700228276" duration="12526000" />
-      <workItem from="1660718813756" duration="3985000" />
+      <workItem from="1660718813756" duration="25588000" />
+      <workItem from="1660786572313" duration="16858000" />
     </task>
     <task id="LOCAL-00001" summary="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）">
       <created>1660647248938</created>
@@ -173,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660647248938</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="notice模块添加拦截器">
+      <created>1660722970047</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660722970047</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +242,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）" />
+    <MESSAGE value="notice模块添加拦截器" />
+    <option name="LAST_COMMIT_MESSAGE" value="notice模块添加拦截器" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

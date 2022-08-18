@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.openlab.common.utils.Result;
+import com.openlab.common.utils.ResultCode;
 import com.openlab.common.utils.ResultCodeEnum;
 import com.openlab.notice.Entity.NoticeToUser;
 import com.openlab.notice.Entity.NoticeTpl;
@@ -15,13 +16,12 @@ import com.openlab.notice.service.NoticeTplService;
 import com.openlab.notice.utils.HostHolder;
 import com.openlab.notice.vo.NoticeListVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/notice")
@@ -42,28 +42,11 @@ public class NoticeController {
     @Autowired
     private HostHolder hostHolder;
 
-    @GetMapping("/tpl")
-    public Result getTpl(){
-        List<Map<String,String>> res = new ArrayList<>();
-        Map<String,String> map1 = new HashMap<>();
-        Map<String,String> map2 = new HashMap<>();
-        map1.put("title","停水通知");
-        map1.put("tpl","");
-        map1.put("content","");
-        map2.put("title","停电通知");
-        map2.put("tpl","");
-        map2.put("content","");
-        res.add(map1);
-        res.add(map2);
-        Map list = new HashMap<>();
-        list.put("list", res);
-        return Result.ok(ResultCodeEnum.SUCCESS.code, list);
-    }
 
     @PostMapping("/create")
     public Result create(@RequestBody Map<String,Object> noticeContent, HttpServletRequest httpServletRequest){
 
-        Long userId = hostHolder.getUserId();
+        Long userId = hostHolder.getUserId();// 获取当前用户
 
         NoticeTpl noticeTpl = NoticeTpl.builder()
                 .tpl((String) noticeContent.get("tpl"))
@@ -121,6 +104,10 @@ public class NoticeController {
         if (noticeDetail.get("tpl") != null){
 
         }
+        String content = noticeDetail.get("content").toString();
+        String s = content.replaceAll("\"", "'");
+
+        noticeDetail.put("content",s);
         noticeDetail.put("tpl_title",tpl_title);
         noticeDetail.put("published_real_name",noticeDetail.get("real_name"));
         return Result.ok(ResultCodeEnum.SUCCESS.code, noticeDetail);
@@ -158,5 +145,61 @@ public class NoticeController {
         Map<String,Object> data = new HashMap<>();
         data.put("published_at", published_at);
         return Result.ok(ResultCodeEnum.SUCCESS.code, "修改小区通知成功",data);
+    }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody Map<String,Object> updateParam) {
+
+        String content = JSON.toJSONString(updateParam.get("content"));
+
+        QueryWrapper<NoticeToUser> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", updateParam.get("id"));
+        queryWrapper.eq("community_id", updateParam.get("community_id"));
+
+        NoticeToUser detail = noticeToUserService.getOne(queryWrapper);
+
+        if (ObjectUtils.isEmpty(detail)) {
+            return Result.error(ResultCode.QUERY_ILLEFAL, "非法的小区通知");
+        }
+        if (detail.getPublished() == 1) {
+            return Result.error(ResultCode.STATUS_ERROR, "已发布的通知不能更新");
+        }
+        Long noticeTplId = detail.getNotice_tpl_id();
+        if (!ObjectUtils.isEmpty(updateParam.get("oa_tpl_msg"))) {
+            if (!ObjectUtils.isEmpty(noticeTplId)) {
+                UpdateWrapper<NoticeTpl> updateWrapper = new UpdateWrapper<>();
+                updateWrapper.eq("id", detail.getNotice_tpl_id());
+                updateWrapper.set("tpl", updateParam.get("tpl"));
+                updateWrapper.set("content", content);
+
+                noticeTplService.update(updateWrapper);
+            } else {
+                noticeTplService.save(NoticeTpl.builder()
+                        .tpl((String) updateParam.get("tpl"))
+                        .content(String.valueOf(content))
+                        .build());
+            }
+        } else {
+            if (ObjectUtils.isEmpty(noticeTplId)) {
+                noticeTplService.removeById(detail.getNotice_tpl_id());
+                noticeTplId = null;
+            }
+        }
+        UpdateWrapper<NoticeToUser> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id", detail.getId());
+        updateWrapper.eq("community_id", detail.getCommunity_id());
+        updateWrapper.set("title", updateParam.get("title"));
+        updateWrapper.set("overview", updateParam.get("overview"));
+        updateWrapper.set("content", content);
+        updateWrapper.set("published", detail.getPublished());
+        updateWrapper.set("published_at", ObjectUtils.isEmpty(detail.getPublished()) ? new Date().getTime() : null);
+
+        boolean update = noticeToUserService.update(updateWrapper);
+
+        if (!update) {
+            return Result.error(ResultCode.DATA_MODEL_UPDATE_FAIL, "修改小区通知失败");
+        }
+
+        return Result.ok(200, "修改小区通知成功");
     }
 }

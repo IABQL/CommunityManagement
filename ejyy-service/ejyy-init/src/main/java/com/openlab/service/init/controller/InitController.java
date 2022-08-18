@@ -42,6 +42,7 @@ public class InitController {
                 .leaveOffice(false)
                 .joinCompanyAt(new Date().getTime())
                 .createdAt(new Date().getTime())
+                .avatarUrl(paramDto.getAvatar_url())
                 .build();
         propertyCompanyUserService.save(propertyCompanyUser);
 

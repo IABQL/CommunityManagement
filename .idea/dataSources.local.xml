@@ -16,7 +16,7 @@
       </schema-mapping>
     </data-source>
     <data-source name="ejyy" uuid="b6d8d286-e558-425f-994e-8933284e15e5">
-      <database-info product="MySQL" version="5.7.36" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="5.7.36" exact-driver-version="8.0">
+      <database-info product="MySQL" version="5.7.36-log" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="5.7.36" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
