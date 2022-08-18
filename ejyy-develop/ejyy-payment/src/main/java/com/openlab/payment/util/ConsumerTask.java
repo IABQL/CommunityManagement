@@ -1,5 +1,6 @@
 package com.openlab.payment.util;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.openlab.payment.entity.PaymentOrder;
 import com.openlab.payment.service.PaymentOrderService;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
@@ -38,13 +39,18 @@ public class ConsumerTask {
                 boolean isSuccess = false;
                 MessageExt messageExt = list.get(0);
 
+                UpdateWrapper<PaymentOrder> updateWrapper = new UpdateWrapper<>();
+                Integer state = null;
+                String orderId = null;
                 try {
+                    // 将对象反序列化
                     byte[] body = messageExt.getBody();
                     ByteArrayInputStream is = new ByteArrayInputStream(body);
                     ObjectInputStream ois = new ObjectInputStream(is);
                     PayMessageContext payMessageContext =(PayMessageContext) ois.readObject();
                     String paymentTaskType = payMessageContext.getPaymentTaskType();
 
+                    orderId = payMessageContext.getOrderId();
                     PaymentOrder paymentOrder = PaymentOrder.builder()
                             .paymentPrice(payMessageContext.getPaymentPrice())
                             .paymentTime(payMessageContext.getPaymentTime())
@@ -58,23 +64,24 @@ public class ConsumerTask {
                             .orderId(payMessageContext.getOrderId())
                             .orderState(payMessageContext.getOrderState())
                             .build();
-
-                    System.out.println(payMessageContext);
                     if (paymentTaskType.equals(PaymentTaskType.SAVE.getId())) {
-                        System.out.println("保存");
+                        System.out.println("保存中.......");
                         isSuccess = paymentOrderService.save(paymentOrder);
-
-                    } else if (paymentTaskType.equals(PaymentTaskType.DELET.getId())) {
-                        System.out.println("删除");
-                        isSuccess = paymentOrderService.removeById(paymentOrder.getId());
-
                     }
                 }catch (Exception e){
-                    System.out.println("消息消费失败，请尝试重试！！！");
                     return ConsumeConcurrentlyStatus.RECONSUME_LATER;
                 }
-                System.out.println("消费成功");
-                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+
+                if(isSuccess) {
+                  updateWrapper.eq("order_id",orderId);
+                  updateWrapper.set("order_state",state);
+                  state = 3;
+                }
+                if(state == 3) {
+                    paymentOrderService.update(updateWrapper);
+                    return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+                }
+                return ConsumeConcurrentlyStatus.RECONSUME_LATER;
             }
         });
         consumer.start();

@@ -1,9 +1,11 @@
 package com.openlab.payment.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.openlab.common.dto.AllNameInfo;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.payment.dto.PayTypeDto;
 import com.openlab.payment.dto.PaymentOrderDto;
+import com.openlab.payment.dto.StateDto;
 import com.openlab.payment.dto.UserAccessPayTypeDto;
 import com.openlab.payment.entity.*;
 import com.openlab.payment.exception.RepeatTimeException;
@@ -17,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @RequestMapping("/payment")
@@ -60,8 +63,6 @@ public class PaymentController {
 
         // 保存订单
         paymentOrderService.save(paymentOrder);
-
-
 
         // 修改水电气表的金额
         PayInfo payInfo = payTypeService.queryPayType(paymentOrder.getUserId(), paymentOrder.getPaymentType());
@@ -114,9 +115,15 @@ public class PaymentController {
     }
 
     @GetMapping("/order/state")
-    Integer getState(@RequestBody String order_id){
+    StateDto getState(@RequestParam("order_id") String order_id){
         return paymentOrderService.getOrderState(order_id);
     }
 
+    @GetMapping("/orders/{orderState}")
+    List<PaymentOrder> getPaymentOrderDtos(@PathVariable("orderState") Integer order_state){
+        QueryWrapper<PaymentOrder> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("order_state",order_state);
+        return paymentOrderService.list(queryWrapper);
+    }
 
 }

@@ -3,6 +3,7 @@ package com.openlab.payment.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.common.dto.CompanyUserPart;
+import com.openlab.payment.dto.StateDto;
 import com.openlab.payment.entity.*;
 import com.openlab.payment.feign.PaymentFeign;
 import com.openlab.payment.mapper.PaymentOrderMapper;
@@ -120,8 +121,7 @@ public class PaymentOrderServiceImpl
     }
 
     @Override
-    public Integer getOrderState(String orderId) {
-
+    public StateDto getOrderState(String orderId) {
         return baseMapper.getOrderState(orderId);
     }
 }

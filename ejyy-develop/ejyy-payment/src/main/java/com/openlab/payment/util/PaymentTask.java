@@ -22,6 +22,8 @@ public class PaymentTask {
 
        producer.setNamesrvAddr("1.14.75.238:9876");
 
+       producer.setRetryTimesWhenSendAsyncFailed(3);
+
        TransactionListener listener = new TransactionListener() {
            @Override
            public LocalTransactionState executeLocalTransaction(Message message, Object o) {
