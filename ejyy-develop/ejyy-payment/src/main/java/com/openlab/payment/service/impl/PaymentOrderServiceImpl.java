@@ -89,7 +89,7 @@ public class PaymentOrderServiceImpl
     }
 
     @Override
-    public String getOrderId(PaymentOrder paymentOrder){
+    public String createOrderId(PaymentOrder paymentOrder){
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String date = sdf.format(System.currentTimeMillis());
@@ -107,7 +107,6 @@ public class PaymentOrderServiceImpl
 
         try {
             consumerTask.consumer();
-            Thread.sleep(2000);
             paymentTask.produce(paymentOrder);
         } catch (MQClientException e) {
             e.printStackTrace();
@@ -118,6 +117,12 @@ public class PaymentOrderServiceImpl
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Integer getOrderState(String orderId) {
+
+        return baseMapper.getOrderState(orderId);
     }
 }
 

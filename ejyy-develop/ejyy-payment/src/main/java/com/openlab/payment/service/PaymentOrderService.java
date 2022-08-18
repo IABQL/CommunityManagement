@@ -9,6 +9,7 @@ public interface PaymentOrderService extends IService<PaymentOrder> {
 
     public PaymentOrder createPaymentOrder(CompanyUserInformation companyUserInformation);
     public PaymentOrder createPaymentOrder(PayInfo payInfo,CompanyUserInformation companyUserInformation);
-    public String getOrderId(PaymentOrder paymentOrder);
+    public String createOrderId(PaymentOrder paymentOrder);
     public void startSave(PaymentOrder paymentOrder);
+    public Integer getOrderState(String orderId);
 }

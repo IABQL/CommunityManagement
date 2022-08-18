@@ -13,5 +13,6 @@ public interface PayTypeService extends IService<PayType> {
     void updateRemainPrice(Integer type, PayTypeDto payType);
 
     void savePayType(Integer type, PayType payType);
+
     public AllPayTypeRemainPrice getAllPrice(UserAccessPayType userAccessPayType);
 }

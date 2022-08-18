@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="">
+    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="陈福伟">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a37b0b4c-5e51-498e-b88a-cd904608a48d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a37b0b4c-5e51-498e-b88a-cd904608a48d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/dto/PaymentOrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/dto/PaymentOrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/entity/PayInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/entity/PayInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/entity/PayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/entity/PayType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/feign/PaymentFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/feign/PaymentFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/mapper/PayTypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/mapper/PayTypeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/mapper/PaymentOrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/mapper/PaymentOrderMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/PayTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/PayTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PayTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PayTypeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/PaymentOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/PaymentOrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PaymentOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PaymentOrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/mapper/PropertyCompanyUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/mapper/PropertyCompanyUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/service/PropertyCompanyUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/service/PropertyCompanyUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/service/impl/PropertyCompanyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/service/impl/PropertyCompanyUserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +225,7 @@
       <workItem from="1660703254628" duration="16970000" />
       <workItem from="1660724390304" duration="2432000" />
       <workItem from="1660726876264" duration="18446000" />
-      <workItem from="1660785128511" duration="4331000" />
+      <workItem from="1660785128511" duration="6541000" />
     </task>
     <task id="LOCAL-00001" summary="陈福伟">
       <created>1660738483518</created>
@@ -249,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660742186690</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="陈福伟">
+      <created>1660789607375</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660789607375</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

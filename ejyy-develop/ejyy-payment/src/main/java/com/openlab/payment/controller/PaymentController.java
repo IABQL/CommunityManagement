@@ -44,7 +44,7 @@ public class PaymentController {
         PaymentOrder paymentOrder = paymentOrderService.createPaymentOrder(companyUserInformation);
 
         // 生成订单号(缴费类型 + 用户ID + 小区ID + 缴费金额)
-        String orderId = paymentOrderService.getOrderId(paymentOrder);
+        String orderId = paymentOrderService.createOrderId(paymentOrder);
         long currentTime = System.currentTimeMillis();
         if(!redisTemplate.hasKey(orderId)){
             redisTemplate.opsForValue().set(orderId,currentTime,10 , TimeUnit.SECONDS);
@@ -111,6 +111,11 @@ public class PaymentController {
                 .gasPaymentRemainPrice(allPrice.getGasPaymentRemainPrice())
                 .waterPaymentRemainPrice(allPrice.getWaterPaymentRemainPrice())
                 .build();
+    }
+
+    @GetMapping("/order/state")
+    Integer getState(@RequestBody String order_id){
+        return paymentOrderService.getOrderState(order_id);
     }
 
 
