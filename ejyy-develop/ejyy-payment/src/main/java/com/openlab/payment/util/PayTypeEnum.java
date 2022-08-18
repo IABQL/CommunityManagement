@@ -3,7 +3,7 @@ package com.openlab.payment.util;
 public enum PayTypeEnum {
 
     WATER(1,"水费"),
-        ELECTRIC(2,"电费"),
+    ELECTRIC(2,"电费"),
     GAS(3,"气费");
 
     private final Integer code;

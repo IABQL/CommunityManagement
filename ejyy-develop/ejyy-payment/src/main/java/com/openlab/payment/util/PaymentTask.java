@@ -10,11 +10,13 @@ import org.apache.rocketmq.client.producer.TransactionMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.remoting.exception.RemotingException;
+import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+@Component
 public class PaymentTask {
 
    public void produce(PaymentOrder paymentOrder) throws MQClientException, MQBrokerException, RemotingException, InterruptedException {

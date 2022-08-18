@@ -21,7 +21,7 @@ import java.util.List;
 public class ConsumerTask {
 
     @Autowired
-    private PaymentOrderService paymentOrderService;
+    PaymentOrderService paymentOrderService;
 
     public void consumer() throws MQClientException {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("payment");
@@ -47,7 +47,7 @@ public class ConsumerTask {
                     byte[] body = messageExt.getBody();
                     ByteArrayInputStream is = new ByteArrayInputStream(body);
                     ObjectInputStream ois = new ObjectInputStream(is);
-                    PayMessageContext payMessageContext =(PayMessageContext) ois.readObject();
+                    PayMessageContext payMessageContext = (PayMessageContext) ois.readObject();
                     String paymentTaskType = payMessageContext.getPaymentTaskType();
 
                     orderId = payMessageContext.getOrderId();
@@ -65,23 +65,23 @@ public class ConsumerTask {
                             .orderState(payMessageContext.getOrderState())
                             .build();
                     if (paymentTaskType.equals(PaymentTaskType.SAVE.getId())) {
-                        System.out.println("保存中.......");
                         isSuccess = paymentOrderService.save(paymentOrder);
                     }
-                }catch (Exception e){
-                    return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+                    System.out.println(isSuccess);
+                    if (isSuccess) {
+                        updateWrapper.eq("order_id", orderId);
+                        updateWrapper.set("order_state", state);
+                        state = 3;
+                    }
+                    if (state == 3) {
+                        paymentOrderService.update(updateWrapper);
+                        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+                    }
+                } catch (Exception e) {
+                     e.printStackTrace();
+                     return ConsumeConcurrentlyStatus.RECONSUME_LATER;
                 }
-
-                if(isSuccess) {
-                  updateWrapper.eq("order_id",orderId);
-                  updateWrapper.set("order_state",state);
-                  state = 3;
-                }
-                if(state == 3) {
-                    paymentOrderService.update(updateWrapper);
-                    return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
-                }
-                return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+                return null;
             }
         });
         consumer.start();
