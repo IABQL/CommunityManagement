@@ -3,6 +3,9 @@ package com.openlab.payment.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ *   接收水电气表信息
+ * */
 @Data
 @NoArgsConstructor
 public class PayType {

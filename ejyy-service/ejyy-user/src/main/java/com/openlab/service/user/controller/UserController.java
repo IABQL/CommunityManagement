@@ -2,6 +2,7 @@ package com.openlab.service.user.controller;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
+import com.openlab.common.dto.AllNameInfo;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.common.dto.CompanyUserPart;
 import com.openlab.common.utils.*;
@@ -55,6 +56,11 @@ public class UserController {
     @GetMapping("/companyUser")
     CompanyUserPart getCompanyUserInformation(@RequestBody CompanyUserInformation companyUserInformation){
         return companyUserService.getCompanyUser(companyUserInformation);
+    }
+
+    @GetMapping("/community/name")
+    AllNameInfo getAllNameInfo(@RequestParam("userId") Integer userId,@RequestParam("communityId")Long communityId){
+        return propertyCompanyUserService.getAllName(userId,communityId);
     }
 
     @GetMapping("/info")

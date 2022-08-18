@@ -3,9 +3,7 @@ package com.openlab.payment.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.common.dto.CompanyUserPart;
-import com.openlab.payment.entity.PayInfo;
-import com.openlab.payment.entity.PayType;
-import com.openlab.payment.entity.PaymentOrder;
+import com.openlab.payment.entity.*;
 import com.openlab.payment.feign.PaymentFeign;
 import com.openlab.payment.mapper.PaymentOrderMapper;
 import com.openlab.payment.service.PayTypeService;
@@ -19,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+
+import java.text.SimpleDateFormat;
 
 @Service
 public class PaymentOrderServiceImpl
@@ -90,11 +90,13 @@ public class PaymentOrderServiceImpl
 
     @Override
     public String getOrderId(PaymentOrder paymentOrder){
-        String orderKey =
-                paymentOrder.getPaymentPrice() +""
-                        + paymentOrder.getPaymentType()
-                        + paymentOrder.getUserId()
-                        + paymentOrder.getCommunityId();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String date = sdf.format(System.currentTimeMillis());
+        String orderKey = date +
+                         paymentOrder.getPaymentType()+
+                         paymentOrder.getUserId()+
+                         paymentOrder.getCommunityId();
         return orderKey;
     }
 

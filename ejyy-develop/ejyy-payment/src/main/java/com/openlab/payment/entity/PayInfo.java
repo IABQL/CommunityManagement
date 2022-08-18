@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+*    水电气表
+* */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

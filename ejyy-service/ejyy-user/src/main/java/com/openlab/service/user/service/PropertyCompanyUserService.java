@@ -1,6 +1,7 @@
 package com.openlab.service.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.openlab.common.dto.AllNameInfo;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.common.dto.CompanyUserPart;
 import com.openlab.common.dto.PropertyCompanyUser;
@@ -17,4 +18,7 @@ public interface PropertyCompanyUserService extends IService<PropertyCompanyUser
 
     //查询用户的部分信息 (ID和真实姓名)
     CompanyUserPart getCompanyUser(CompanyUserInformation companyUserInformation);
+
+    // 查询用户名和小区名
+    AllNameInfo getAllName(Integer userId,Long communityId);
 }

@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ *   /payment/order 返回结果
+ * */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

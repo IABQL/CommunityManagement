@@ -2,8 +2,10 @@ package com.openlab.payment.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.openlab.payment.dto.PayTypeDto;
+import com.openlab.payment.entity.AllPayTypeRemainPrice;
 import com.openlab.payment.entity.PayInfo;
 import com.openlab.payment.entity.PayType;
+import com.openlab.payment.entity.UserAccessPayType;
 import com.openlab.payment.mapper.PayTypeMapper;
 import com.openlab.payment.service.PayTypeService;
 import com.openlab.payment.util.PayTypeEnum;
@@ -62,5 +64,10 @@ public class PayTypeServiceImpl
         }else if(type == PayTypeEnum.WATER.getCode()){
             baseMapper.insertWater(payType);
         }
+    }
+
+    @Override
+    public AllPayTypeRemainPrice getAllPrice(UserAccessPayType userAccessPayType) {
+         return baseMapper.getAllPayTypeRemainPrice(userAccessPayType);
     }
 }

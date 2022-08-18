@@ -1,6 +1,7 @@
 package com.openlab.service.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.openlab.common.dto.AllNameInfo;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.common.dto.CompanyUserPart;
 import com.openlab.common.dto.PropertyCompanyUser;
@@ -69,4 +70,10 @@ public interface PropertyCompanyUserMapper extends BaseMapper<PropertyCompanyUse
             "(select community_id from ejyy_property_company_user_access_community where property_company_user_id = #{id}) "+
             "and ejyy_property_company_user.id = #{id};")
     CompanyUserPart getCompanyUserPart(@Param("id") Integer id);
+
+    @Select("select ejyy_property_company_user.real_name as userName," +
+            "ejyy_community_info.name as communityName " +
+            "from ejyy_property_company_user join ejyy_community_info " +
+            "on ejyy_property_company_user.id = #{userId} and ejyy_community_info.id=#{communityId}")
+    AllNameInfo getAllName(@Param("userId") Integer userId,@Param("communityId") Long communityId);
 }

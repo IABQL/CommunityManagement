@@ -1,6 +1,7 @@
 package com.openlab.service.user.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.openlab.common.dto.AllNameInfo;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.common.dto.CompanyUserPart;
 import com.openlab.common.dto.PropertyCompanyUser;
@@ -30,4 +31,11 @@ public class PropertyCompanyUserServiceImpl extends ServiceImpl<PropertyCompanyU
     public CompanyUserPart getCompanyUser(CompanyUserInformation companyUserInformation) {
         return baseMapper.getCompanyUserPart(baseMapper.getId(companyUserInformation));
     }
+
+    @Override
+    public AllNameInfo getAllName(Integer userId, Long communityId) {
+        return baseMapper.getAllName(userId, communityId);
+    }
+
+
 }
