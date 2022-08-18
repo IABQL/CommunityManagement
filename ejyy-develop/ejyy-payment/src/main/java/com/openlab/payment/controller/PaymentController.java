@@ -1,6 +1,7 @@
 package com.openlab.payment.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.openlab.common.dto.AllNameInfo;
 import com.openlab.common.dto.CompanyUserInformation;
 import com.openlab.payment.dto.*;
@@ -9,9 +10,7 @@ import com.openlab.payment.exception.RepeatTimeException;
 import com.openlab.payment.feign.PaymentFeign;
 import com.openlab.payment.service.PayTypeService;
 import com.openlab.payment.service.PaymentOrderService;
-import com.openlab.payment.util.OrderState;
-import com.openlab.payment.util.PayTypeEnum;
-import com.openlab.payment.util.UserInfomationUtils;
+import com.openlab.payment.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +35,12 @@ public class PaymentController {
     @Autowired
     PayTypeService payTypeService;
 
+    @Autowired
+    ConsumerTask consumerTask;
+
+    @Autowired
+    PaymentTask paymentTask;
+
     @PostMapping("/order")
     public PaymentOrderDto CreateOrder(@RequestBody DailyPayment dailyPayment) {
         CompanyUserInformation companyUserInformation = UserInfomationUtils.getCompanyUserInformation(dailyPayment);
@@ -58,8 +63,10 @@ public class PaymentController {
         paymentOrder.setOrderId(orderId);
         paymentOrder.setOrderState(OrderState.DEALING.getState());
 
-        // 保存订单
-        paymentOrderService.save(paymentOrder);
+
+        // 存储订单
+       paymentOrderService.save(paymentOrder);
+
 
         // 修改水电气表的金额
         PayInfo payInfo = payTypeService.queryPayType(paymentOrder.getUserId(), paymentOrder.getPaymentType());
@@ -122,11 +129,15 @@ public class PaymentController {
         return paymentOrderService.getOrderState(order_id);
     }
 
-    @GetMapping("/orders/{orderState}")
-    List<PaymentOrder> getPaymentOrderDtos(@PathVariable("orderState") Integer order_state){
+    @GetMapping("/orders")
+    List<PaymentOrder> getPaymentOrder(@RequestBody PageContext pageContext){
         QueryWrapper<PaymentOrder> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("order_state",order_state);
-        return paymentOrderService.list(queryWrapper);
+        if(pageContext.getOrder_state() != null)
+          queryWrapper.eq("order_state",pageContext.getOrder_state());
+
+        Page<PaymentOrder> page = new Page<>(pageContext.getCurrent_page(), pageContext.getPage_size());
+        Page<PaymentOrder> orderPage = paymentOrderService.page(page, queryWrapper);
+        return orderPage.getRecords();
     }
 
 }
