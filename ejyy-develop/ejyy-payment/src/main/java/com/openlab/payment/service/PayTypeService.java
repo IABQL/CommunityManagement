@@ -2,6 +2,7 @@ package com.openlab.payment.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.openlab.payment.dto.PayTypeDto;
+import com.openlab.payment.dto.UserAccessCommunityId;
 import com.openlab.payment.entity.AllPayTypeRemainPrice;
 import com.openlab.payment.entity.PayInfo;
 import com.openlab.payment.entity.PayType;
@@ -14,5 +15,7 @@ public interface PayTypeService extends IService<PayType> {
 
     void savePayType(Integer type, PayType payType);
 
-    public AllPayTypeRemainPrice getAllPrice(UserAccessPayType userAccessPayType);
+    public AllPayTypeRemainPrice getAllPrice(UserAccessCommunityId userAccessCommunityId);
+
+    UserAccessCommunityId getUserAccessCommunityId(UserAccessPayType userAccessPayType);
 }

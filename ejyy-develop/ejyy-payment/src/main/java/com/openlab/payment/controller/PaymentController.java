@@ -3,10 +3,7 @@ package com.openlab.payment.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.openlab.common.dto.AllNameInfo;
 import com.openlab.common.dto.CompanyUserInformation;
-import com.openlab.payment.dto.PayTypeDto;
-import com.openlab.payment.dto.PaymentOrderDto;
-import com.openlab.payment.dto.StateDto;
-import com.openlab.payment.dto.UserAccessPayTypeDto;
+import com.openlab.payment.dto.*;
 import com.openlab.payment.entity.*;
 import com.openlab.payment.exception.RepeatTimeException;
 import com.openlab.payment.feign.PaymentFeign;
@@ -102,8 +99,14 @@ public class PaymentController {
 
     @GetMapping("/user")
     UserAccessPayTypeDto getState(@RequestBody UserAccessPayType userAccessPayType){
-        AllPayTypeRemainPrice allPrice = payTypeService.getAllPrice(userAccessPayType);
-        AllNameInfo allName = paymentFeign.getAllName(userAccessPayType.getUser_id(), userAccessPayType.getCommunity_id());
+        // 通过用户电话号码或身份证获取用户ID和小区ID
+        UserAccessCommunityId userAccessCommunityId = payTypeService.getUserAccessCommunityId(userAccessPayType);
+
+        System.out.println(userAccessCommunityId);
+
+        // 通过用户ID和小区ID获取缴费表的信息
+        AllPayTypeRemainPrice allPrice = payTypeService.getAllPrice(userAccessCommunityId);
+        AllNameInfo allName = paymentFeign.getAllName(userAccessCommunityId.getUserId(),userAccessCommunityId.getCommunityId());
 
         return UserAccessPayTypeDto.builder()
                 .communityName(allName.getCommunityName())

@@ -2,6 +2,7 @@ package com.openlab.payment.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.openlab.payment.dto.PayTypeDto;
+import com.openlab.payment.dto.UserAccessCommunityId;
 import com.openlab.payment.entity.AllPayTypeRemainPrice;
 import com.openlab.payment.entity.PayInfo;
 import com.openlab.payment.entity.PayType;
@@ -67,7 +68,12 @@ public class PayTypeServiceImpl
     }
 
     @Override
-    public AllPayTypeRemainPrice getAllPrice(UserAccessPayType userAccessPayType) {
-         return baseMapper.getAllPayTypeRemainPrice(userAccessPayType);
+    public AllPayTypeRemainPrice getAllPrice(UserAccessCommunityId userAccessCommunityId) {
+         return baseMapper.getAllPayTypeRemainPrice(userAccessCommunityId);
+    }
+
+    @Override
+    public UserAccessCommunityId getUserAccessCommunityId(UserAccessPayType userAccessPayType) {
+        return baseMapper.getUserAccessCommunityId(userAccessPayType);
     }
 }

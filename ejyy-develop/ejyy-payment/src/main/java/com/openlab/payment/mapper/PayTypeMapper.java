@@ -2,6 +2,7 @@ package com.openlab.payment.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.openlab.payment.dto.PayTypeDto;
+import com.openlab.payment.dto.UserAccessCommunityId;
 import com.openlab.payment.entity.AllPayTypeRemainPrice;
 import com.openlab.payment.entity.PayType;
 import com.openlab.payment.entity.UserAccessPayType;
@@ -96,6 +97,24 @@ public interface PayTypeMapper extends BaseMapper<PayType> {
             "ejyy_payment_electric.payment_remain_price electricPaymentRemainPrice," +
             "ejyy_payment_water.payment_remain_price waterPaymentRemainPrice " +
             "from ejyy_payment_gas join ejyy_payment_electric join ejyy_payment_water " +
-            "on ejyy_payment_gas.user_id = #{user_id} and ejyy_payment_water.community_id = #{community_id} ")
-    AllPayTypeRemainPrice getAllPayTypeRemainPrice(UserAccessPayType userAccessPayType);
+            "on ejyy_payment_gas.user_id =#{userId}  and ejyy_payment_water.community_id = #{communityId} ")
+    AllPayTypeRemainPrice getAllPayTypeRemainPrice(UserAccessCommunityId userAccessCommunityId);
+
+    @Select("<script> " +
+            "select " +
+            "ejyy_property_company_user_access_community.property_company_user_id userId," +
+            "ejyy_property_company_user_access_community.community_id communityId " +
+            "from ejyy_property_company_user_access_community " +
+            "where property_company_user_id = (select ejyy_property_company_user.id " +
+            "from ejyy_property_company_user " +
+            "where " +
+            "<if test='user_idcard!=null '>" +
+            "ejyy_property_company_user.idcard = #{user_idcard}" +
+            "</if>"+
+            "<if test='user_phone!=null '>" +
+            "ejyy_property_company_user.phone = #{user_phone}" +
+            "</if>"+
+            ")"+
+            "</script>")
+    UserAccessCommunityId getUserAccessCommunityId(UserAccessPayType userAccessPayType);
 }

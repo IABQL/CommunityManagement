@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Data
 public class UserAccessPayType {
-    Integer user_id;
-    Long  community_id;
-    Integer payment_type;
+   String user_phone;
+   String user_idcard;
 }
