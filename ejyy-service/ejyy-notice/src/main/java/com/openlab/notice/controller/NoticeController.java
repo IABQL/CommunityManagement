@@ -6,8 +6,10 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.openlab.common.utils.Result;
 import com.openlab.common.utils.ResultCode;
 import com.openlab.common.utils.ResultCodeEnum;
+import com.openlab.notice.Entity.Notice;
 import com.openlab.notice.Entity.NoticeToUser;
 import com.openlab.notice.Entity.NoticeTpl;
+import com.openlab.notice.Entity.ScreenDetail;
 import com.openlab.notice.dto.NoticeListDto;
 import com.openlab.notice.rabbit.RabbitProvider;
 import com.openlab.notice.service.NoticeListService;
@@ -15,6 +17,7 @@ import com.openlab.notice.service.NoticeToUserService;
 import com.openlab.notice.service.NoticeTplService;
 import com.openlab.notice.utils.HostHolder;
 import com.openlab.notice.vo.NoticeListVo;
+import com.openlab.notice.vo.ScreenRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
@@ -75,8 +78,12 @@ public class NoticeController {
 
         Map<String,Object> res = new HashMap<>();
         res.put("id",noticeToUser.getId());
-        // TODO................................
-        //rabbitProvider.sendMessage();// 消息队列
+
+        Notice notice = new Notice()
+                .setTitle((String) noticeContent.get("title"))
+                .setOverview((String) noticeContent.get("overview"));
+        ScreenDetail screenDetail = ScreenRandom.random(notice);
+        rabbitProvider.sendMessage(JSON.toJSONString(screenDetail));// 消息队列
         return Result.ok(ResultCodeEnum.SUCCESS.code, res);
     }
 

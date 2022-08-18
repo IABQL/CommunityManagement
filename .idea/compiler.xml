@@ -16,12 +16,14 @@
         <module name="ejyy-ower" />
         <module name="ejyy-init" />
         <module name=" ejyy-service" />
+        <module name="ejyy-netty" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name=" ejyy-service" target="11" />
       <module name="ejyy-common (1) (com.openlab)" target="11" />
       <module name="ejyy-common (2) (com.quincy.ejyy)" target="1.8" />
+      <module name="ejyy-netty" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="TypeScriptCompiler">
