@@ -1,0 +1,25 @@
+server:
+  port: 8020
+
+spring:
+  application:
+    name: ower-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1.14.75.238:8848
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://1.14.75.238:3306/ejyy?useSSL=false&characterEncoding=UTF8
+    username: root
+    password: cyq0902
+
+mybatis-plus:
+  type-aliases-package: com.openlab.service.epidemic.mapper
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: ejyy_
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    map-underscore-to-camel-case: false

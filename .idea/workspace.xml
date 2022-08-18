@@ -4,21 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="notice模块添加拦截器">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6d8d286-e558-425f-994e-8933284e15e5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6d8d286-e558-425f-994e-8933284e15e5.xml" afterDir="false" />
+    <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="陈福伟">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-init/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-init/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-init/src/main/java/com/openlab/service/init/controller/InitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-init/src/main/java/com/openlab/service/init/controller/InitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/interceptor/ParseTokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/interceptor/ParseTokenInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/java/com/openlab/service/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PaymentOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PaymentOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/ConsumerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/ConsumerTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PayTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PayTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PaymentTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PaymentTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -32,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$/ejyy-openlab" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,20 +50,32 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\software\Maven\repository" />
-        <option name="mavenHome" value="D:\software\apache-maven-3.8.4" />
-        <option name="userSettingsFile" value="D:\software\apache-maven-3.8.4\conf\settings.xml" />
+        <option name="localRepository" value="D:\maven_respository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2DNW6racRddzbdVtFKbCBg42dmj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2DBkeVVM91NzE05h6F9evbZ5Uyq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -68,90 +85,84 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/分布式项目/flying-pigeon-IM" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
-    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-screen\src\main\java\com\openlab\statistic" />
-      <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-screen\src\main\resources\mapper" />
-      <recent name="C:\Users\ASUS\Desktop\ejyy-openlab\ejyy-service\ejyy-statistic\src\main\resources" />
+      <recent name="D:\Workspace\Idea\ejyy-openlab\ejyy-service\ejyy-user\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.openlab.service.init" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.openlab.service.init.controller" />
-      <recent name="com.openlab.notice.utils" />
-      <recent name="com.openlab.notice.interceptor" />
-      <recent name="com.openlab.statistic" />
+      <recent name="com.openlab.service.user.dto" />
+      <recent name="com.openlab.service.user.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.InitApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PaymentApplication">
+    <configuration name="TestDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestDemo" />
+      <module name="ejyy-payment" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ejyy-gateway" />
+    <configuration name="TestDemo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-payment" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.openlab.gateway.*" />
+          <option name="PATTERN" value="com.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.gateway.GatewayApplication" />
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.TestDemo" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InitApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ejyy-init" />
+    <configuration name="TestDemo.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-payment" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.openlab.service.init.*" />
+          <option name="PATTERN" value="com.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.service.init.InitApplication" />
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.TestDemo" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NoticeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ejyy-notice" />
+    <configuration name="PaymentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-payment" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.openlab.notice.*" />
+          <option name="PATTERN" value="com.openlab.payment.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.notice.NoticeApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScreenApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ejyy-screen" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.openlab.statistic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.statistic.ScreenApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.payment.PaymentApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -169,84 +180,102 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.TestDemo" />
+      <item itemvalue="JUnit.TestDemo.test" />
+      <item itemvalue="JUnit.TestDemo" />
+      <item itemvalue="Spring Boot.PaymentApplication" />
+      <item itemvalue="Spring Boot.UserApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.PaymentApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
-        <item itemvalue="Spring Boot.InitApplication" />
-        <item itemvalue="Spring Boot.NoticeApplication" />
-        <item itemvalue="Spring Boot.ScreenApplication" />
-        <item itemvalue="Spring Boot.GatewayApplication" />
+        <item itemvalue="JUnit.TestDemo" />
+        <item itemvalue="JUnit.TestDemo.test" />
+        <item itemvalue="Application.TestDemo" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <created>1660539849240</created>
+      <changelist id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="" />
+      <created>1660179963390</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1660539849240</updated>
-      <workItem from="1660539852113" duration="1014000" />
-      <workItem from="1660541009802" duration="18839000" />
-      <workItem from="1660566294421" duration="6739000" />
-      <workItem from="1660580347583" duration="1263000" />
-      <workItem from="1660582602131" duration="154000" />
-      <workItem from="1660615113709" duration="38572000" />
-      <workItem from="1660700228276" duration="12526000" />
-      <workItem from="1660718813756" duration="25588000" />
-      <workItem from="1660786572313" duration="16858000" />
+      <updated>1660179963390</updated>
+      <workItem from="1660179966372" duration="20212000" />
+      <workItem from="1660264187562" duration="27341000" />
+      <workItem from="1660303337239" duration="5601000" />
+      <workItem from="1660436380265" duration="25744000" />
+      <workItem from="1660470215823" duration="1095000" />
+      <workItem from="1660471339876" duration="454000" />
+      <workItem from="1660471809565" duration="941000" />
+      <workItem from="1660472898067" duration="2300000" />
+      <workItem from="1660476316935" duration="222000" />
+      <workItem from="1660477261580" duration="7066000" />
+      <workItem from="1660527818453" duration="2470000" />
+      <workItem from="1660535166229" duration="1159000" />
+      <workItem from="1660543384908" duration="21758000" />
+      <workItem from="1660568422021" duration="4647000" />
+      <workItem from="1660578583350" duration="2395000" />
+      <workItem from="1660616739466" duration="32920000" />
+      <workItem from="1660703254628" duration="16970000" />
+      <workItem from="1660724390304" duration="2432000" />
+      <workItem from="1660726876264" duration="18446000" />
+      <workItem from="1660785128511" duration="19401000" />
     </task>
-    <task id="LOCAL-00001" summary="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）">
-      <created>1660647248938</created>
+    <task id="LOCAL-00001" summary="陈福伟">
+      <created>1660738483518</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1660647248938</updated>
+      <updated>1660738483518</updated>
     </task>
-    <task id="LOCAL-00002" summary="notice模块添加拦截器">
-      <created>1660722970047</created>
+    <task id="LOCAL-00002" summary="陈福伟">
+      <created>1660742186690</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1660722970047</updated>
+      <updated>1660742186690</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="陈福伟">
+      <created>1660789607375</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660789607375</updated>
+    </task>
+    <task id="LOCAL-00004" summary="陈福伟">
+      <created>1660792054584</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660792054584</updated>
+    </task>
+    <task id="LOCAL-00005" summary="陈福伟">
+      <created>1660794990617</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660794990617</updated>
+    </task>
+    <task id="LOCAL-00006" summary="陈福伟">
+      <created>1660805593505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660805593505</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/develop" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.添加消息队列&#10;2.添加netty通信&#10;3.添加大屏显示（仅返回数据）" />
-    <MESSAGE value="notice模块添加拦截器" />
-    <option name="LAST_COMMIT_MESSAGE" value="notice模块添加拦截器" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="陈福伟" />
+    <option name="LAST_COMMIT_MESSAGE" value="陈福伟" />
   </component>
 </project>

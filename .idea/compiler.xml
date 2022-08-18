@@ -2,17 +2,19 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ejyy-security" />
+        <module name="ejyy-epidemic" />
+        <module name="ejyy-payment" />
         <module name="ejyy-utils" />
         <module name="ejyy-user" />
         <module name="ejyy-gateway" />
-        <module name="ejyy-notice" />
+        <module name="ejyy-ower" />
         <module name="ejyy-init" />
-        <module name="ejyy-screen" />
         <module name=" ejyy-service" />
       </profile>
     </annotationProcessing>

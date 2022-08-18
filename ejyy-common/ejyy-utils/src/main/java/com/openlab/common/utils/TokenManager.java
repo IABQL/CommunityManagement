@@ -17,6 +17,7 @@ public class TokenManager {
     public static final long EXPIRE = 1000 * 60 * 60 * 24; // token 过期时间为 1 天
     public static final String SECRET = "openlab123";  // 密钥
 
+
     // 生成 token 字符串
     public static String createToken(Long id,String name) {
         String token = Jwts.builder()

@@ -3,12 +3,14 @@ server:
 
 spring:
   application:
-    name: user-server
+    name: userDev-server
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://1.14.75.238:3306/ejyy?useSSL=false&characterEncoding=UTF8
+#    url: jdbc:mysql://127.0.0.1:3306/ejyy?useSSL=false&characterEncoding=UTF8
     username: root
     password: cyq0902
+#    password: 123456
   redis:
     host: 1.14.64.16
     port: 6379

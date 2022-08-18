@@ -14,8 +14,8 @@
     <modules>
         <module>ejyy-init</module>
         <module>ejyy-user</module>
-        <module>ejyy-screen</module>
-        <module>ejyy-notice</module>
+        <module>ejyy-basic</module>
+        <module>ejyy-option</module>
     </modules>
 
     <properties>

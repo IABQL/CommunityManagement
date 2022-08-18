@@ -1,9 +1,12 @@
 package com.openlab.service.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.openlab.common.dto.AllNameInfo;
+import com.openlab.common.dto.CompanyUserInformation;
+import com.openlab.common.dto.CompanyUserPart;
+import com.openlab.common.dto.PropertyCompanyUser;
 import com.openlab.service.user.dto.DepartJob;
 import com.openlab.service.user.dto.LoginInfo;
-import com.openlab.service.user.entity.PropertyCompanyUser;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -41,4 +44,36 @@ public interface PropertyCompanyUserMapper extends BaseMapper<PropertyCompanyUse
             "left join ejyy_property_company_job on ejyy_property_company_job.id=ejyy_property_company_user.job_id " +
             "where ejyy_property_company_user.id=#{userId}")
     DepartJob getInfoByUserId(@Param("userId") Integer userId);
+
+    @Select("<script> " +
+            "select id " +
+            "from ejyy_property_company_user " +
+            "<where>" +
+            "<if test='idcard!=null '>" +
+            "and idcard = #{idcard} " +
+            "</if>" +
+            "<if test='phone!=null '>" +
+            "and phone = #{phone} " +
+            "</if>" +
+            "</where> " +
+            " </script>"
+    )
+    Integer getId(CompanyUserInformation companyUserInformation);
+
+    @Select("select " +
+            "ejyy_property_company_user.id id, " +
+            "ejyy_property_company_user.real_name realName, " +
+            "ejyy_community_info.id communityId, "+
+            "ejyy_community_info.name communityName " +
+            "from ejyy_property_company_user join ejyy_community_info " +
+            "where ejyy_community_info.id = " +
+            "(select community_id from ejyy_property_company_user_access_community where property_company_user_id = #{id}) "+
+            "and ejyy_property_company_user.id = #{id};")
+    CompanyUserPart getCompanyUserPart(@Param("id") Integer id);
+
+    @Select("select ejyy_property_company_user.real_name as userName," +
+            "ejyy_community_info.name as communityName " +
+            "from ejyy_property_company_user join ejyy_community_info " +
+            "on ejyy_property_company_user.id = #{userId} and ejyy_community_info.id=#{communityId}")
+    AllNameInfo getAllName(@Param("userId") Integer userId,@Param("communityId") Long communityId);
 }

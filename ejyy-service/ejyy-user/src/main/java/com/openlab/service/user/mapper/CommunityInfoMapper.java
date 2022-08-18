@@ -26,4 +26,5 @@ public interface CommunityInfoMapper extends BaseMapper<CommunityInfo> {
             "  where property_company_user_id=#{userId}" +
             ")")
     CommunityDto communityInfo(@Param("userId") Long userId);
+
 }
