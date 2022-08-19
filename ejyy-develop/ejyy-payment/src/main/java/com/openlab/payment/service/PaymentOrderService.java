@@ -11,6 +11,5 @@ public interface PaymentOrderService extends IService<PaymentOrder> {
     public PaymentOrder createPaymentOrder(CompanyUserInformation companyUserInformation);
     public PaymentOrder createPaymentOrder(PayInfo payInfo,CompanyUserInformation companyUserInformation);
     public String createOrderId(PaymentOrder paymentOrder);
-    public void startSave(PaymentOrder paymentOrder);
     public StateDto getOrderState(String orderId);
 }

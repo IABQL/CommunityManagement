@@ -10,7 +10,10 @@ import com.openlab.payment.exception.RepeatTimeException;
 import com.openlab.payment.feign.PaymentFeign;
 import com.openlab.payment.service.PayTypeService;
 import com.openlab.payment.service.PaymentOrderService;
-import com.openlab.payment.util.*;
+import com.openlab.payment.util.MessageSender;
+import com.openlab.payment.util.OrderState;
+import com.openlab.payment.util.PayTypeEnum;
+import com.openlab.payment.util.UserInfomationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -36,15 +39,13 @@ public class PaymentController {
     PayTypeService payTypeService;
 
     @Autowired
-    ConsumerTask consumerTask;
+    MessageSender messageSender;
 
-    @Autowired
-    PaymentTask paymentTask;
 
     @PostMapping("/order")
     public PaymentOrderDto CreateOrder(@RequestBody DailyPayment dailyPayment) {
-        CompanyUserInformation companyUserInformation = UserInfomationUtils.getCompanyUserInformation(dailyPayment);
 
+        CompanyUserInformation companyUserInformation = UserInfomationUtils.getCompanyUserInformation(dailyPayment);
         // 生成半订单(没有订单状态、订单ID)
         PaymentOrder paymentOrder = paymentOrderService.createPaymentOrder(companyUserInformation);
 
@@ -55,7 +56,7 @@ public class PaymentController {
             redisTemplate.opsForValue().set(orderId,currentTime,10 , TimeUnit.SECONDS);
         }else{
            long preTime = (long)redisTemplate.opsForValue().get(orderId);
-           if((currentTime-preTime)/1000 <= 10){
+           if((currentTime-preTime)/1000 <= 20){
                throw new RepeatTimeException("请勿重复提交订单");
            }
         }
@@ -64,9 +65,8 @@ public class PaymentController {
         paymentOrder.setOrderState(OrderState.DEALING.getState());
 
 
-        // 存储订单
-       paymentOrderService.save(paymentOrder);
-
+        // 保存信息
+        messageSender.send(paymentOrder);
 
         // 修改水电气表的金额
         PayInfo payInfo = payTypeService.queryPayType(paymentOrder.getUserId(), paymentOrder.getPaymentType());

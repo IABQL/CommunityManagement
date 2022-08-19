@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/ejyy-service/ejyy-notice/ejyy-notice.iml" filepath="$PROJECT_DIR$/ejyy-service/ejyy-notice/ejyy-notice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ejyy-service/ejyy-screen/ejyy-screen.iml" filepath="$PROJECT_DIR$/ejyy-service/ejyy-screen/ejyy-screen.iml" />
-    </modules>
-  </component>
-</project>

@@ -11,17 +11,12 @@ import com.openlab.payment.feign.PaymentFeign;
 import com.openlab.payment.mapper.PaymentOrderMapper;
 import com.openlab.payment.service.PayTypeService;
 import com.openlab.payment.service.PaymentOrderService;
-import com.openlab.payment.util.ConsumerTask;
-import com.openlab.payment.util.PaymentTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import java.text.SimpleDateFormat;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
 
 @Service
 public class PaymentOrderServiceImpl
@@ -99,25 +94,6 @@ public class PaymentOrderServiceImpl
                          paymentOrder.getUserId()+
                          paymentOrder.getCommunityId();
         return orderKey;
-    }
-
-    ExecutorService executor = Executors.newFixedThreadPool(4);
-
-    @Override
-    public void startSave(PaymentOrder paymentOrder) {
-
-            FutureTask<Integer> futureTask = new FutureTask<>(()->{
-                ConsumerTask consumerTask = new ConsumerTask();
-                consumerTask.consumer();
-                return 1;
-            });
-            FutureTask<Integer> futureTask2 = new FutureTask<>(()->{
-                PaymentTask paymentTask = new PaymentTask();
-                paymentTask.produce(paymentOrder);
-                return 1;
-            });
-            executor.execute(futureTask);
-            executor.execute(futureTask2);
     }
 
     @Override
