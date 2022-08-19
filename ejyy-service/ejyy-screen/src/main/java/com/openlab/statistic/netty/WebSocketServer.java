@@ -17,18 +17,18 @@ public class WebSocketServer {
 
     private static final WebSocketServer instance = new WebSocketServer();
 
-    private EventLoopGroup mainGroup;
-    private EventLoopGroup subGroup;
+    private EventLoopGroup bossGroup;
+    private EventLoopGroup workGroup;
     private ServerBootstrap server;
     private ChannelFuture future;
 
     private WebSocketServer() {
-        mainGroup = new NioEventLoopGroup();
-        subGroup = new NioEventLoopGroup();
+        bossGroup = new NioEventLoopGroup(1);
+        workGroup = new NioEventLoopGroup();
         server = new ServerBootstrap();
-        server.group(mainGroup, subGroup)
+        server.group(bossGroup, workGroup)
                 .channel(NioServerSocketChannel.class)
-                .childHandler(new WSServerInitialzer());// 添加初始化事件
+                .childHandler(new WSServerInitialzer());// 添加初始化事件，处理客服端连接的socketChannel
     }
 
     public static WebSocketServer getInstance() {

@@ -6,13 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="wxc">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_8_15_12_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_8_15_12_04__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_8_17_21_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_8_17_21_32__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/ejyy-notice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/ejyy-notice.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/controller/NoticeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/ejyy-screen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/ejyy-screen.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/ChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/ChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/HeartBeatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/HeartBeatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/WSServerInitialzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/WSServerInitialzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/netty/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/rabbit/RabbitConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/java/com/openlab/statistic/rabbit/RabbitConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-screen/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +92,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ejyy-service/ejyy-notice/src/main/java/com/openlab/notice/Entity" />
+    <property name="last_opened_file_path" value="D:/IDEA/rabbitmq" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -124,14 +128,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PaymentApplication">
-    <configuration name="TestDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestDemo" />
-      <module name="ejyy-payment" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.ScreenApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -158,18 +155,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDemo.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ejyy-payment" />
+    <configuration name="NoticeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-notice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.*" />
+          <option name="PATTERN" value="com.openlab.notice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com" />
-      <option name="MAIN_CLASS_NAME" value="com.TestDemo" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.notice.NoticeApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,6 +177,19 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.payment.PaymentApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScreenApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-screen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.openlab.statistic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.statistic.ScreenApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,19 +208,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestDemo" />
-      <item itemvalue="JUnit.TestDemo.test" />
       <item itemvalue="JUnit.TestDemo" />
       <item itemvalue="Spring Boot.PaymentApplication" />
       <item itemvalue="Spring Boot.UserApplication" />
+      <item itemvalue="Spring Boot.ScreenApplication" />
+      <item itemvalue="Spring Boot.NoticeApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.PaymentApplication" />
+        <item itemvalue="Spring Boot.ScreenApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
+        <item itemvalue="Spring Boot.NoticeApplication" />
+        <item itemvalue="Spring Boot.PaymentApplication" />
         <item itemvalue="JUnit.TestDemo" />
-        <item itemvalue="JUnit.TestDemo.test" />
-        <item itemvalue="Application.TestDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +252,9 @@
       <workItem from="1660724390304" duration="2432000" />
       <workItem from="1660726876264" duration="18446000" />
       <workItem from="1660785128511" duration="19401000" />
-      <workItem from="1660828779428" duration="779000" />
+      <workItem from="1660828779428" duration="1591000" />
+      <workItem from="1660830396910" duration="2858000" />
+      <workItem from="1660876107232" duration="13505000" />
     </task>
     <task id="LOCAL-00001" summary="陈福伟">
       <created>1660738483518</created>
@@ -289,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660805593505</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="wxc">
+      <created>1660829583375</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660829583375</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +325,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="陈福伟" />
-    <option name="LAST_COMMIT_MESSAGE" value="陈福伟" />
+    <MESSAGE value="wxc" />
+    <option name="LAST_COMMIT_MESSAGE" value="wxc" />
   </component>
 </project>

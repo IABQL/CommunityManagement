@@ -17,30 +17,30 @@ import java.util.concurrent.TimeUnit;
 public class WSServerInitialzer extends ChannelInitializer<SocketChannel> {
 
     @Override
-    protected void initChannel(SocketChannel channel) throws Exception {
+    protected void initChannel(SocketChannel channel) {
 
         // 获取管道（pipeline）
         ChannelPipeline pipeline = channel.pipeline();
         // websocket 基于http协议，所需要的http 编解码器
         pipeline.addLast(new HttpServerCodec());
-        // 在http上有一些数据流产生，有大有小，我们对其进行处理，既然如此，我们需要使用netty 对下数据流写 提供支持，这个类叫：ChunkedWriteHandler
+        // 分块写数据
         pipeline.addLast(new ChunkedWriteHandler());
-        // 对httpMessage 进行聚合处理，聚合成request或 response
+        // 对httpMessage（请求头、体） 进行聚合处理后再向后传递
         pipeline.addLast(new HttpObjectAggregator(1024*64));
 
-        // 针对客户端，如果在20s时间内没有向服务端发送读写心跳（ALL），则主动断开连接
-        pipeline.addLast(new IdleStateHandler(10,10,20, TimeUnit.SECONDS));
-        // 自定义的空闲状态检测的handler
+        // 针对客户端，如果在5s时间内没有向服务端发送读心跳，则产生IdleState.READER_IDLE空闲读事件
+        pipeline.addLast(new IdleStateHandler(5,0,5, TimeUnit.SECONDS));
+        // 自定义的空闲状态检测的handler，刚才产生的事件交于接下来handler处理
         pipeline.addLast(new HeartBeatHandler());
 
         /**
-         * 本handler 会帮你处理一些繁重复杂的事情
-         * 会帮你处理握手动作：handshaking（close、ping、pong） ping+pong = 心跳
-         * 对于websocket 来讲，都是以frams 进行传输的，不同的数据类型对应的frams 也不同
+         * 负责 websocket 握手建立连接以及控制帧（Close、Ping、Pong）的处理。
+         * 文本和二进制数据帧被传递给管道中的下一个处理程序（由您实现）进行处理。
+         * 只接受websocket请求
          */
         pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
-        // 自定义的handler，处理消息，将消息转发等操作
+        // 自定义的handler，处理消息等操作
         pipeline.addLast(new ChatHandler());
 
     }

@@ -83,6 +83,7 @@ public class NoticeController {
                 .setTitle((String) noticeContent.get("title"))
                 .setOverview((String) noticeContent.get("overview"));
         ScreenDetail screenDetail = ScreenRandom.random(notice);
+
         rabbitProvider.sendMessage(JSON.toJSONString(screenDetail));// 消息队列
         return Result.ok(ResultCodeEnum.SUCCESS.code, res);
     }
