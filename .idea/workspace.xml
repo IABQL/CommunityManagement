@@ -6,12 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d56eb9d4-40f5-4216-b4af-a36da7c0884b" name="Changes" comment="陈福伟">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/PaymentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/PaymentApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/PaymentOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/PaymentOrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PaymentOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/service/impl/PaymentOrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/ConsumerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/ConsumerTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PayTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PayTypeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PaymentTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PaymentTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PaymentTaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/java/com/openlab/payment/util/PaymentTaskType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejyy-develop/ejyy-payment/src/test/java/com/TestDemo.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ejyy-service/ejyy-user/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,15 +119,9 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PaymentApplication">
-    <configuration name="TestDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestDemo" />
-      <module name="ejyy-payment" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestDemo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.TestTwo">
+    <configuration name="TestOne" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TestOne" />
       <module name="ejyy-payment" />
       <extension name="coverage">
         <pattern>
@@ -131,14 +129,12 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com" />
-      <option name="MAIN_CLASS_NAME" value="com.TestDemo" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDemo.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTwo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TestTwo" />
       <module name="ejyy-payment" />
       <extension name="coverage">
         <pattern>
@@ -146,10 +142,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com" />
-      <option name="MAIN_CLASS_NAME" value="com.TestDemo" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InitApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ejyy-init" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.openlab.service.init.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openlab.service.init.InitApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,19 +186,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestDemo" />
-      <item itemvalue="JUnit.TestDemo.test" />
-      <item itemvalue="JUnit.TestDemo" />
       <item itemvalue="Spring Boot.PaymentApplication" />
       <item itemvalue="Spring Boot.UserApplication" />
+      <item itemvalue="Spring Boot.InitApplication" />
+      <item itemvalue="Application.TestOne" />
+      <item itemvalue="Application.TestTwo" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.PaymentApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
-        <item itemvalue="JUnit.TestDemo" />
-        <item itemvalue="JUnit.TestDemo.test" />
-        <item itemvalue="Application.TestDemo" />
+        <item itemvalue="Spring Boot.PaymentApplication" />
+        <item itemvalue="Application.TestTwo" />
+        <item itemvalue="Application.TestOne" />
+        <item itemvalue="Spring Boot.InitApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +229,9 @@
       <workItem from="1660703254628" duration="16970000" />
       <workItem from="1660724390304" duration="2432000" />
       <workItem from="1660726876264" duration="18446000" />
-      <workItem from="1660785128511" duration="19401000" />
+      <workItem from="1660785128511" duration="21752000" />
+      <workItem from="1660830380330" duration="3331000" />
+      <workItem from="1660883136098" duration="13828000" />
     </task>
     <task id="LOCAL-00001" summary="陈福伟">
       <created>1660738483518</created>
@@ -268,7 +275,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660805593505</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="陈福伟">
+      <created>1660811490742</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660811490742</updated>
+    </task>
+    <task id="LOCAL-00008" summary="陈福伟">
+      <created>1660811660694</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660811660694</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

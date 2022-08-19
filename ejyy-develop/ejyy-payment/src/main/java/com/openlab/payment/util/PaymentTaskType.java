@@ -2,7 +2,7 @@ package com.openlab.payment.util;
 
 public enum PaymentTaskType {
     SAVE("1","存储数据"),
-    DELET("2","删除数据");
+    DELETE("2","删除数据");
 
 
     private String id;
