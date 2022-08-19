@@ -179,7 +179,7 @@ public class UserController {
                 .build();
 
         // 2. 生成 token
-        String token = TokenManager.createToken(loginInfo.getAccount());
+        String token = TokenManager.createToken(loginInfo.getId().longValue(),loginInfo.getAccount());
 
         // 3. 更新 token，这一步的操作可以放到消息队列中
         UpdateWrapper<PropertyCompanyAuth> updateWrapper = new UpdateWrapper<>();
@@ -244,6 +244,7 @@ public class UserController {
         }
         postInfo.setDefault_community_id(defaultInfo == null ? postInfo.getCommunity_list().get(0).getCommunity_id() : defaultInfo);
         postInfo.setWechat_payment(0);
+
 
         // 返回结果的信息
         Map<String, Object> data = new HashMap<>();
@@ -311,4 +312,5 @@ public class UserController {
         data.put("expire", 1800000);
         return Result.ok(200, data);
     }
+
 }

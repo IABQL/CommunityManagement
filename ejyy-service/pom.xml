@@ -16,6 +16,9 @@
         <module>ejyy-user</module>
         <module>ejyy-basic</module>
         <module>ejyy-option</module>
+        <module>ejyy-notice</module>
+        <module>ejyy-screen</module>
+        <module>ejyy-pet</module>
     </modules>
 
     <properties>

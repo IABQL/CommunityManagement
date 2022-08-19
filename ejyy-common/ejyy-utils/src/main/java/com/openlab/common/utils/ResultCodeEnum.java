@@ -82,9 +82,9 @@ public enum ResultCodeEnum {
     IOT_WARNING_ILLEGAL(-180, "预警中控非法"),
     IOT_SECRET_ERROR(-181, "物联网设备秘钥错误");
 
-    private final Integer code;
+    public final Integer code;
 
-    private final String message;
+    public final String message;
 
     ResultCodeEnum(Integer code, String message) {
         this.code = code;

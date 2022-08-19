@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.openlab.notice.mapper.NoticeMapper">
+    <select id="selectNotice" resultType="com.openlab.notice.vo.NoticeListVo" parameterType="com.openlab.notice.dto.NoticeListDto">
+        select
+            SQL_CALC_FOUND_ROWS
+            ejyy_notice_to_user.id,
+            ejyy_notice_to_user.title,
+            ejyy_notice_to_user.published,
+            ejyy_notice_to_user.published_at,
+            ejyy_notice_to_user.notice_tpl_id,
+            ejyy_notice_to_user.created_by,
+            ejyy_notice_to_user.created_at,
+            ejyy_property_company_user.real_name
+        from ejyy_notice_to_user
+            left join ejyy_property_company_user on ejyy_property_company_user.id = ejyy_notice_to_user.created_by
+        where ejyy_notice_to_user.community_id = #{community_id}
+        <if test="published != null">
+            and ejyy_notice_to_user.published = #{published}
+        </if>
+        order by ejyy_notice_to_user.id desc
+        limit #{offset},#{page_size}
+    </select>
+
+    <select id="selectNoticeTotal" resultType="int">
+        select
+            count(*)
+        from ejyy_notice_to_user
+                 left join ejyy_property_company_user on ejyy_property_company_user.id = ejyy_notice_to_user.created_by
+        where ejyy_notice_to_user.community_id = #{community_id}
+        <if test="published != null">
+            and ejyy_notice_to_user.published = #{published}
+        </if>
+    </select>
+
+    <select id="selectNoticeDetail" resultType="HashMap">
+        select
+            ejyy_notice_to_user.id,
+            ejyy_notice_to_user.title,
+            ejyy_notice_to_user.overview,
+            ejyy_notice_to_user.content,
+            ejyy_notice_to_user.created_at,
+            ejyy_notice_to_user.notice_tpl_id,
+            ejyy_notice_to_user.published,
+            ejyy_notice_to_user.published_at,
+            ejyy_notice_to_user.created_by,
+            ejyy_notice_to_user.published_by,
+            ejyy_notice_tpl.tpl,
+            ejyy_notice_tpl.content as tpl_content,
+            ejyy_property_company_user.real_name
+        from ejyy_notice_to_user
+        left join ejyy_notice_tpl on ejyy_notice_tpl.id = ejyy_notice_to_user.notice_tpl_id
+        left join ejyy_property_company_user on ejyy_property_company_user.id = ejyy_notice_to_user.created_by
+        where ejyy_notice_to_user.id = #{arg0} and ejyy_notice_to_user.community_id = #{arg1}
+    </select>
+</mapper>
