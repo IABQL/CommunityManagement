@@ -22,8 +22,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -45,9 +47,9 @@ public class NoticeController {
     @Autowired
     private HostHolder hostHolder;
 
-
+    /** 创建通知 */
     @PostMapping("/create")
-    public Result create(@RequestBody Map<String,Object> noticeContent, HttpServletRequest httpServletRequest){
+    public Result create(@RequestBody Map<String,Object> noticeContent){
 
         Long userId = hostHolder.getUserId();// 获取当前用户
 
@@ -79,15 +81,21 @@ public class NoticeController {
         Map<String,Object> res = new HashMap<>();
         res.put("id",noticeToUser.getId());
 
+        String title = (String) noticeContent.get("title");
         Notice notice = new Notice()
-                .setTitle((String) noticeContent.get("title"))
+                .setTitle(title)
                 .setOverview((String) noticeContent.get("overview"));
         ScreenDetail screenDetail = ScreenRandom.random(notice);
 
-        rabbitProvider.sendMessage(JSON.toJSONString(screenDetail));// 消息队列
+        if (published == 1){
+            String jsonString = JSON.toJSONString(screenDetail);
+            rabbitProvider.sendNoticeMessage(jsonString);// 消息队列
+        }
+
         return Result.ok(ResultCodeEnum.SUCCESS.code, res);
     }
 
+    /** 通知列表 */
     @PostMapping("/list")
     public Result getNoticeList(@RequestBody NoticeListDto noticeListDto){
         int offset = (noticeListDto.getPage_num()-1) * noticeListDto.getPage_size();
@@ -105,22 +113,20 @@ public class NoticeController {
         return Result.ok(ResultCodeEnum.SUCCESS.code, res);
     }
 
+    /** 通知详情 */
     @PostMapping("/detail")
     public Result getNoticeDetail(@RequestBody Map<String,Long> map) {
         Map<String, Object> noticeDetail = noticeListService.getNoticeDetail(map.get("id"),map.get("community_id"));
-        String tpl_title = "非法模板";
-        if (noticeDetail.get("tpl") != null){
 
-        }
         String content = noticeDetail.get("content").toString();
         String s = content.replaceAll("\"", "'");
 
         noticeDetail.put("content",s);
-        noticeDetail.put("tpl_title",tpl_title);
         noticeDetail.put("published_real_name",noticeDetail.get("real_name"));
         return Result.ok(ResultCodeEnum.SUCCESS.code, noticeDetail);
     }
 
+    /** 发布通知 */
     @PostMapping("/published")
     public Result published(@RequestBody Map<String,Long> map){
         Long id = map.get("id");
@@ -152,13 +158,12 @@ public class NoticeController {
 
         Map<String,Object> data = new HashMap<>();
         data.put("published_at", published_at);
-        return Result.ok(ResultCodeEnum.SUCCESS.code, "修改小区通知成功",data);
+        return Result.ok(ResultCodeEnum.SUCCESS.code, "发布小区通知成功",data);
     }
 
+    /** 修改通知 */
     @PostMapping("/update")
     public Result update(@RequestBody Map<String,Object> updateParam) {
-
-        String content = JSON.toJSONString(updateParam.get("content"));
 
         QueryWrapper<NoticeToUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("id", updateParam.get("id"));
@@ -173,7 +178,9 @@ public class NoticeController {
             return Result.error(ResultCode.STATUS_ERROR, "已发布的通知不能更新");
         }
         Long noticeTplId = detail.getNotice_tpl_id();
+        String content = JSON.toJSONString(updateParam.get("content"));
         if (!ObjectUtils.isEmpty(updateParam.get("oa_tpl_msg"))) {
+
             if (!ObjectUtils.isEmpty(noticeTplId)) {
                 UpdateWrapper<NoticeTpl> updateWrapper = new UpdateWrapper<>();
                 updateWrapper.eq("id", detail.getNotice_tpl_id());

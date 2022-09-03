@@ -22,9 +22,9 @@ public class UploadController {
 
     private String endpoint = "oss-cn-beijing.aliyuncs.com";
 
-    private String accessKeyId = "LTAI5tLJDTEmVekc3Rq7UXzJ";
+    private String accessKeyId = "xxxxxxx";
 
-    private String accessKeySecret = "boeDf4p3IaD4SLoEpM4oxRS6Yar9ZE";
+    private String accessKeySecret = "xxxxxxx";
 
     private String host = "https://blogs-community.oss-cn-beijing.aliyuncs.com";
 

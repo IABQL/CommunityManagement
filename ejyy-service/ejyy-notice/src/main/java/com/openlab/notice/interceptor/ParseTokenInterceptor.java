@@ -23,7 +23,7 @@ public class ParseTokenInterceptor implements HandlerInterceptor {
             hostHolder.setUserId(userId);
             return true;
         }else {
-            return true;
+            return false;
         }
     }
 

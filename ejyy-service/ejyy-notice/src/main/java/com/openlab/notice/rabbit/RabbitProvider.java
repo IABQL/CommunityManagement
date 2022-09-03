@@ -11,7 +11,7 @@ public class RabbitProvider {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void sendMessage(String msg){
+    public void sendNoticeMessage(String msg){
         rabbitTemplate.convertAndSend(RabbitMqConfig.EXCHANGE_NAME,"",msg);
     }
 }
